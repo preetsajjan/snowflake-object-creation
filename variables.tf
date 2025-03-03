@@ -1,18 +1,18 @@
 variable "SNOWFLAKE_ORGANIZATION_NAME" {
     type = string
-    default = "WQCSLMJ"
+    default = "SVQKFBE"
 }
 variable "SNOWFLAKE_ACCOUNT_NAME" {
     type = string
-    default = "EQ53332"
+    default = "LK10506"
 }
 variable "SNOWFLAKE_USER_NAME" {
     type = string
-    default = "PREETIMITRA"
+    default = "PREETIMITRA1"
 }
 variable "SNOWFLAKE_PASSWORD" {
     type = string
-    default = "Preetimitra@2024"
+    default = "Preetimitra1@2024"
 }
 variable "ENV" {
     type = string
@@ -41,4 +41,9 @@ variable "task_operator_parents" {
   description = "List of roles to be inherited by Task Operator"
   type        = list(string)
   default     = ["WR_TO", "FR_ENGR"]
+}
+variable "dbaccount_admin_role" {
+  description = "snowflake dbaccount admin role"
+  type        = string
+  default     = "TZSYSADMIN_DEV"
 }

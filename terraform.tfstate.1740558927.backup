@@ -1,8 +1,8 @@
 {
   "version": 4,
   "terraform_version": "1.10.5",
-  "serial": 121,
-  "lineage": "351c2316-a40e-ed0d-8bad-2c8d84295776",
+  "serial": 304,
+  "lineage": "0d80e94a-9134-a480-2863-dd1c4b7a7c16",
   "outputs": {},
   "resources": [
     {
@@ -15,20 +15,20 @@
           "schema_version": 0,
           "attributes": {
             "comment": "CREATE SCHEMA ROLE",
-            "fully_qualified_name": "\"DEV_AR_CS_APPLICATION_NAME\"",
-            "id": "DEV_AR_CS_APPLICATION_NAME",
-            "name": "DEV_AR_CS_APPLICATION_NAME",
+            "fully_qualified_name": "\"AR_CS\"",
+            "id": "AR_CS",
+            "name": "AR_CS",
             "show_output": [
               {
                 "assigned_to_users": 0,
                 "comment": "CREATE SCHEMA ROLE",
-                "created_on": "2025-02-26 02:02:09.551 -0800 PST",
-                "granted_roles": 1,
+                "created_on": "2025-02-24 02:54:07.622 -0800 PST",
+                "granted_roles": 0,
                 "granted_to_roles": 0,
                 "is_current": false,
                 "is_default": false,
                 "is_inherited": false,
-                "name": "DEV_AR_CS_APPLICATION_NAME",
+                "name": "AR_CS",
                 "owner": "ACCOUNTADMIN"
               }
             ]
@@ -56,9 +56,9 @@
               {
                 "assigned_to_users": 1,
                 "comment": "Frontend role for ENGR",
-                "created_on": "2025-02-26 02:02:09.78 -0800 PST",
+                "created_on": "2025-02-26 00:51:51.861 -0800 PST",
                 "granted_roles": 1,
-                "granted_to_roles": 5,
+                "granted_to_roles": 1,
                 "is_current": false,
                 "is_default": false,
                 "is_inherited": false,
@@ -82,9 +82,9 @@
               {
                 "assigned_to_users": 1,
                 "comment": "Frontend role for RDR",
-                "created_on": "2025-02-26 02:02:09.668 -0800 PST",
+                "created_on": "2025-02-26 00:51:51.812 -0800 PST",
                 "granted_roles": 0,
-                "granted_to_roles": 4,
+                "granted_to_roles": 1,
                 "is_current": false,
                 "is_default": false,
                 "is_inherited": false,
@@ -109,20 +109,20 @@
           "schema_version": 0,
           "attributes": {
             "comment": "Read-only role for DWH schema",
-            "fully_qualified_name": "\"DEV_AR_DWH_RO_APPLICATION_NAME\"",
-            "id": "DEV_AR_DWH_RO_APPLICATION_NAME",
-            "name": "DEV_AR_DWH_RO_APPLICATION_NAME",
+            "fully_qualified_name": "\"AR_DWH_RO\"",
+            "id": "AR_DWH_RO",
+            "name": "AR_DWH_RO",
             "show_output": [
               {
                 "assigned_to_users": 0,
                 "comment": "Read-only role for DWH schema",
-                "created_on": "2025-02-26 02:02:10.031 -0800 PST",
-                "granted_roles": 1,
+                "created_on": "2025-02-26 01:15:34.849 -0800 PST",
+                "granted_roles": 0,
                 "granted_to_roles": 0,
                 "is_current": false,
                 "is_default": false,
                 "is_inherited": false,
-                "name": "DEV_AR_DWH_RO_APPLICATION_NAME",
+                "name": "AR_DWH_RO",
                 "owner": "ACCOUNTADMIN"
               }
             ]
@@ -135,20 +135,20 @@
           "schema_version": 0,
           "attributes": {
             "comment": "Read-only role for MDL schema",
-            "fully_qualified_name": "\"DEV_AR_MDL_RO_APPLICATION_NAME\"",
-            "id": "DEV_AR_MDL_RO_APPLICATION_NAME",
-            "name": "DEV_AR_MDL_RO_APPLICATION_NAME",
+            "fully_qualified_name": "\"AR_MDL_RO\"",
+            "id": "AR_MDL_RO",
+            "name": "AR_MDL_RO",
             "show_output": [
               {
                 "assigned_to_users": 0,
                 "comment": "Read-only role for MDL schema",
-                "created_on": "2025-02-26 02:02:09.647 -0800 PST",
-                "granted_roles": 1,
+                "created_on": "2025-02-26 01:15:34.643 -0800 PST",
+                "granted_roles": 0,
                 "granted_to_roles": 0,
                 "is_current": false,
                 "is_default": false,
                 "is_inherited": false,
-                "name": "DEV_AR_MDL_RO_APPLICATION_NAME",
+                "name": "AR_MDL_RO",
                 "owner": "ACCOUNTADMIN"
               }
             ]
@@ -161,20 +161,20 @@
           "schema_version": 0,
           "attributes": {
             "comment": "Read-only role for STG schema",
-            "fully_qualified_name": "\"DEV_AR_STG_RO_APPLICATION_NAME\"",
-            "id": "DEV_AR_STG_RO_APPLICATION_NAME",
-            "name": "DEV_AR_STG_RO_APPLICATION_NAME",
+            "fully_qualified_name": "\"AR_STG_RO\"",
+            "id": "AR_STG_RO",
+            "name": "AR_STG_RO",
             "show_output": [
               {
                 "assigned_to_users": 0,
                 "comment": "Read-only role for STG schema",
-                "created_on": "2025-02-26 02:02:09.903 -0800 PST",
-                "granted_roles": 1,
+                "created_on": "2025-02-26 01:15:34.643 -0800 PST",
+                "granted_roles": 0,
                 "granted_to_roles": 0,
                 "is_current": false,
                 "is_default": false,
                 "is_inherited": false,
-                "name": "DEV_AR_STG_RO_APPLICATION_NAME",
+                "name": "AR_STG_RO",
                 "owner": "ACCOUNTADMIN"
               }
             ]
@@ -191,50 +191,24 @@
       "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
       "instances": [
         {
-          "index_key": "DWH",
-          "schema_version": 0,
-          "attributes": {
-            "comment": "Read-Write role for DWH schema",
-            "fully_qualified_name": "\"DEV_AR_DWH_RW_APPLICATION_NAME\"",
-            "id": "DEV_AR_DWH_RW_APPLICATION_NAME",
-            "name": "DEV_AR_DWH_RW_APPLICATION_NAME",
-            "show_output": [
-              {
-                "assigned_to_users": 0,
-                "comment": "Read-Write role for DWH schema",
-                "created_on": "2025-02-26 02:02:10.013 -0800 PST",
-                "granted_roles": 1,
-                "granted_to_roles": 0,
-                "is_current": false,
-                "is_default": false,
-                "is_inherited": false,
-                "name": "DEV_AR_DWH_RW_APPLICATION_NAME",
-                "owner": "ACCOUNTADMIN"
-              }
-            ]
-          },
-          "sensitive_attributes": [],
-          "private": "bnVsbA=="
-        },
-        {
           "index_key": "MDL",
           "schema_version": 0,
           "attributes": {
             "comment": "Read-Write role for MDL schema",
-            "fully_qualified_name": "\"DEV_AR_MDL_RW_APPLICATION_NAME\"",
-            "id": "DEV_AR_MDL_RW_APPLICATION_NAME",
-            "name": "DEV_AR_MDL_RW_APPLICATION_NAME",
+            "fully_qualified_name": "\"AR_MDL_RW\"",
+            "id": "AR_MDL_RW",
+            "name": "AR_MDL_RW",
             "show_output": [
               {
                 "assigned_to_users": 0,
                 "comment": "Read-Write role for MDL schema",
-                "created_on": "2025-02-26 02:02:09.43 -0800 PST",
-                "granted_roles": 1,
+                "created_on": "2025-02-26 01:19:42.072 -0800 PST",
+                "granted_roles": 0,
                 "granted_to_roles": 0,
                 "is_current": false,
                 "is_default": false,
                 "is_inherited": false,
-                "name": "DEV_AR_MDL_RW_APPLICATION_NAME",
+                "name": "AR_MDL_RW",
                 "owner": "ACCOUNTADMIN"
               }
             ]
@@ -247,20 +221,20 @@
           "schema_version": 0,
           "attributes": {
             "comment": "Read-Write role for STG schema",
-            "fully_qualified_name": "\"DEV_AR_STG_RW_APPLICATION_NAME\"",
-            "id": "DEV_AR_STG_RW_APPLICATION_NAME",
-            "name": "DEV_AR_STG_RW_APPLICATION_NAME",
+            "fully_qualified_name": "\"AR_STG_RW\"",
+            "id": "AR_STG_RW",
+            "name": "AR_STG_RW",
             "show_output": [
               {
                 "assigned_to_users": 0,
                 "comment": "Read-Write role for STG schema",
-                "created_on": "2025-02-26 02:02:09.68 -0800 PST",
-                "granted_roles": 1,
+                "created_on": "2025-02-26 01:19:41.837 -0800 PST",
+                "granted_roles": 0,
                 "granted_to_roles": 0,
                 "is_current": false,
                 "is_default": false,
                 "is_inherited": false,
-                "name": "DEV_AR_STG_RW_APPLICATION_NAME",
+                "name": "AR_STG_RW",
                 "owner": "ACCOUNTADMIN"
               }
             ]
@@ -287,7 +261,7 @@
               {
                 "assigned_to_users": 0,
                 "comment": "",
-                "created_on": "2025-02-26 02:02:09.672 -0800 PST",
+                "created_on": "2025-02-24 01:07:42.678 -0800 PST",
                 "granted_roles": 0,
                 "granted_to_roles": 1,
                 "is_current": false,
@@ -320,7 +294,7 @@
               {
                 "assigned_to_users": 0,
                 "comment": "Role responsible for running tasks",
-                "created_on": "2025-02-26 02:02:10.147 -0800 PST",
+                "created_on": "2025-02-26 00:51:51.809 -0800 PST",
                 "granted_roles": 0,
                 "granted_to_roles": 2,
                 "is_current": false,
@@ -354,7 +328,7 @@
               {
                 "assigned_to_users": 0,
                 "comment": "Role for ENGR Warehouse",
-                "created_on": "2025-02-26 02:02:10.041 -0800 PST",
+                "created_on": "2025-02-26 00:51:51.953 -0800 PST",
                 "granted_roles": 1,
                 "granted_to_roles": 0,
                 "is_current": false,
@@ -380,7 +354,7 @@
               {
                 "assigned_to_users": 0,
                 "comment": "Role for RDR Warehouse",
-                "created_on": "2025-02-26 02:02:10.168 -0800 PST",
+                "created_on": "2025-02-26 00:51:51.809 -0800 PST",
                 "granted_roles": 1,
                 "granted_to_roles": 0,
                 "is_current": false,
@@ -406,7 +380,7 @@
               {
                 "assigned_to_users": 0,
                 "comment": "Role for TO Warehouse",
-                "created_on": "2025-02-26 02:02:09.808 -0800 PST",
+                "created_on": "2025-02-26 00:51:51.987 -0800 PST",
                 "granted_roles": 1,
                 "granted_to_roles": 0,
                 "is_current": false,
@@ -463,28 +437,6 @@
     {
       "mode": "managed",
       "type": "snowflake_grant_account_role",
-      "name": "ar_cs_inherit_to_fr_engr",
-      "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
-      "instances": [
-        {
-          "schema_version": 0,
-          "attributes": {
-            "id": "\"DEV_FR_ENGR_APPLICATION_NAME\"|ROLE|\"DEV_AR_CS_APPLICATION_NAME\"",
-            "parent_role_name": "DEV_AR_CS_APPLICATION_NAME",
-            "role_name": "DEV_FR_ENGR_APPLICATION_NAME",
-            "user_name": null
-          },
-          "sensitive_attributes": [],
-          "private": "bnVsbA==",
-          "dependencies": [
-            "snowflake_account_role.fr_roles"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "snowflake_grant_account_role",
       "name": "fr_inheritance",
       "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
       "instances": [
@@ -523,158 +475,6 @@
     {
       "mode": "managed",
       "type": "snowflake_grant_account_role",
-      "name": "fr_inheritance_ro_roles",
-      "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
-      "instances": [
-        {
-          "index_key": "DWH",
-          "schema_version": 0,
-          "attributes": {
-            "id": "\"DEV_FR_RDR_APPLICATION_NAME\"|ROLE|\"DEV_AR_DWH_RO_APPLICATION_NAME\"",
-            "parent_role_name": "DEV_AR_DWH_RO_APPLICATION_NAME",
-            "role_name": "DEV_FR_RDR_APPLICATION_NAME",
-            "user_name": null
-          },
-          "sensitive_attributes": [],
-          "private": "bnVsbA==",
-          "dependencies": [
-            "snowflake_account_role.fr_roles",
-            "snowflake_account_role.schema_roles_ro"
-          ]
-        },
-        {
-          "index_key": "MDL",
-          "schema_version": 0,
-          "attributes": {
-            "id": "\"DEV_FR_RDR_APPLICATION_NAME\"|ROLE|\"DEV_AR_MDL_RO_APPLICATION_NAME\"",
-            "parent_role_name": "DEV_AR_MDL_RO_APPLICATION_NAME",
-            "role_name": "DEV_FR_RDR_APPLICATION_NAME",
-            "user_name": null
-          },
-          "sensitive_attributes": [],
-          "private": "bnVsbA==",
-          "dependencies": [
-            "snowflake_account_role.fr_roles",
-            "snowflake_account_role.schema_roles_ro"
-          ]
-        },
-        {
-          "index_key": "STG",
-          "schema_version": 0,
-          "attributes": {
-            "id": "\"DEV_FR_RDR_APPLICATION_NAME\"|ROLE|\"DEV_AR_STG_RO_APPLICATION_NAME\"",
-            "parent_role_name": "DEV_AR_STG_RO_APPLICATION_NAME",
-            "role_name": "DEV_FR_RDR_APPLICATION_NAME",
-            "user_name": null
-          },
-          "sensitive_attributes": [],
-          "private": "bnVsbA==",
-          "dependencies": [
-            "snowflake_account_role.fr_roles",
-            "snowflake_account_role.schema_roles_ro"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "snowflake_grant_account_role",
-      "name": "fr_inheritance_rw_roles",
-      "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
-      "instances": [
-        {
-          "index_key": "DWH",
-          "schema_version": 0,
-          "attributes": {
-            "id": "\"DEV_FR_ENGR_APPLICATION_NAME\"|ROLE|\"DEV_AR_DWH_RW_APPLICATION_NAME\"",
-            "parent_role_name": "DEV_AR_DWH_RW_APPLICATION_NAME",
-            "role_name": "DEV_FR_ENGR_APPLICATION_NAME",
-            "user_name": null
-          },
-          "sensitive_attributes": [],
-          "private": "bnVsbA==",
-          "dependencies": [
-            "snowflake_account_role.fr_roles",
-            "snowflake_account_role.schema_roles_rw"
-          ]
-        },
-        {
-          "index_key": "MDL",
-          "schema_version": 0,
-          "attributes": {
-            "id": "\"DEV_FR_ENGR_APPLICATION_NAME\"|ROLE|\"DEV_AR_MDL_RW_APPLICATION_NAME\"",
-            "parent_role_name": "DEV_AR_MDL_RW_APPLICATION_NAME",
-            "role_name": "DEV_FR_ENGR_APPLICATION_NAME",
-            "user_name": null
-          },
-          "sensitive_attributes": [],
-          "private": "bnVsbA==",
-          "dependencies": [
-            "snowflake_account_role.fr_roles",
-            "snowflake_account_role.schema_roles_rw"
-          ]
-        },
-        {
-          "index_key": "STG",
-          "schema_version": 0,
-          "attributes": {
-            "id": "\"DEV_FR_ENGR_APPLICATION_NAME\"|ROLE|\"DEV_AR_STG_RW_APPLICATION_NAME\"",
-            "parent_role_name": "DEV_AR_STG_RW_APPLICATION_NAME",
-            "role_name": "DEV_FR_ENGR_APPLICATION_NAME",
-            "user_name": null
-          },
-          "sensitive_attributes": [],
-          "private": "bnVsbA==",
-          "dependencies": [
-            "snowflake_account_role.fr_roles",
-            "snowflake_account_role.schema_roles_rw"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "snowflake_grant_account_role",
-      "name": "fr_roles_inherit_to_tsysadmin",
-      "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
-      "instances": [
-        {
-          "index_key": "ENGR",
-          "schema_version": 0,
-          "attributes": {
-            "id": "\"TZSYSADMIN_DEV\"|ROLE|\"DEV_FR_ENGR_APPLICATION_NAME\"",
-            "parent_role_name": "DEV_FR_ENGR_APPLICATION_NAME",
-            "role_name": "TZSYSADMIN_DEV",
-            "user_name": null
-          },
-          "sensitive_attributes": [],
-          "private": "bnVsbA==",
-          "dependencies": [
-            "snowflake_account_role.fr_roles",
-            "snowflake_account_role.snowflake_service_role"
-          ]
-        },
-        {
-          "index_key": "RDR",
-          "schema_version": 0,
-          "attributes": {
-            "id": "\"TZSYSADMIN_DEV\"|ROLE|\"DEV_FR_RDR_APPLICATION_NAME\"",
-            "parent_role_name": "DEV_FR_RDR_APPLICATION_NAME",
-            "role_name": "TZSYSADMIN_DEV",
-            "user_name": null
-          },
-          "sensitive_attributes": [],
-          "private": "bnVsbA==",
-          "dependencies": [
-            "snowflake_account_role.fr_roles",
-            "snowflake_account_role.snowflake_service_role"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "snowflake_grant_account_role",
       "name": "fr_roles_to_existing_user",
       "provider": "provider[\"registry.terraform.io/snowflake-labs/snowflake\"]",
       "instances": [
@@ -682,10 +482,10 @@
           "index_key": "ENGR",
           "schema_version": 0,
           "attributes": {
-            "id": "\"DEV_FR_ENGR_APPLICATION_NAME\"|USER|\"PREETIMITRA1\"",
+            "id": "\"DEV_FR_ENGR_APPLICATION_NAME\"|USER|\"PREETIMITRA\"",
             "parent_role_name": null,
             "role_name": "DEV_FR_ENGR_APPLICATION_NAME",
-            "user_name": "PREETIMITRA1"
+            "user_name": "PREETIMITRA"
           },
           "sensitive_attributes": [],
           "private": "bnVsbA=="
@@ -694,10 +494,10 @@
           "index_key": "RDR",
           "schema_version": 0,
           "attributes": {
-            "id": "\"DEV_FR_RDR_APPLICATION_NAME\"|USER|\"PREETIMITRA1\"",
+            "id": "\"DEV_FR_RDR_APPLICATION_NAME\"|USER|\"PREETIMITRA\"",
             "parent_role_name": null,
             "role_name": "DEV_FR_RDR_APPLICATION_NAME",
-            "user_name": "PREETIMITRA1"
+            "user_name": "PREETIMITRA"
           },
           "sensitive_attributes": [],
           "private": "bnVsbA=="
@@ -790,7 +590,6 @@
           "sensitive_attributes": [],
           "private": "bnVsbA==",
           "dependencies": [
-            "snowflake_account_role.snowflake_service_role",
             "snowflake_warehouse.wh"
           ]
         },
@@ -814,7 +613,6 @@
           "sensitive_attributes": [],
           "private": "bnVsbA==",
           "dependencies": [
-            "snowflake_account_role.snowflake_service_role",
             "snowflake_warehouse.wh"
           ]
         },
@@ -838,7 +636,6 @@
           "sensitive_attributes": [],
           "private": "bnVsbA==",
           "dependencies": [
-            "snowflake_account_role.snowflake_service_role",
             "snowflake_warehouse.wh"
           ]
         }
@@ -885,11 +682,11 @@
           "index_key": "DWH",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_DWH_RO_APPLICATION_NAME",
+            "account_role_name": "AR_DWH_RO",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_DWH_RO_APPLICATION_NAME\"|false|false|USAGE|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
+            "id": "\"AR_DWH_RO\"|false|false|USAGE|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
             "on_account": false,
             "on_account_object": [
               {
@@ -915,11 +712,11 @@
           "index_key": "MDL",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_MDL_RO_APPLICATION_NAME",
+            "account_role_name": "AR_MDL_RO",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_MDL_RO_APPLICATION_NAME\"|false|false|USAGE|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
+            "id": "\"AR_MDL_RO\"|false|false|USAGE|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
             "on_account": false,
             "on_account_object": [
               {
@@ -945,11 +742,11 @@
           "index_key": "STG",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_STG_RO_APPLICATION_NAME",
+            "account_role_name": "AR_STG_RO",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_STG_RO_APPLICATION_NAME\"|false|false|USAGE|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
+            "id": "\"AR_STG_RO\"|false|false|USAGE|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
             "on_account": false,
             "on_account_object": [
               {
@@ -983,11 +780,11 @@
           "index_key": "DWH",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_DWH_RW_APPLICATION_NAME",
+            "account_role_name": "AR_DWH_RW",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_DWH_RW_APPLICATION_NAME\"|false|false|USAGE|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
+            "id": "\"AR_DWH_RW\"|false|false|USAGE|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
             "on_account": false,
             "on_account_object": [
               {
@@ -1013,11 +810,11 @@
           "index_key": "MDL",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_MDL_RW_APPLICATION_NAME",
+            "account_role_name": "AR_MDL_RW",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_MDL_RW_APPLICATION_NAME\"|false|false|USAGE|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
+            "id": "\"AR_MDL_RW\"|false|false|USAGE|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
             "on_account": false,
             "on_account_object": [
               {
@@ -1043,11 +840,11 @@
           "index_key": "STG",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_STG_RW_APPLICATION_NAME",
+            "account_role_name": "AR_STG_RW",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_STG_RW_APPLICATION_NAME\"|false|false|USAGE|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
+            "id": "\"AR_STG_RW\"|false|false|USAGE|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
             "on_account": false,
             "on_account_object": [
               {
@@ -1080,11 +877,11 @@
         {
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_CS_APPLICATION_NAME",
+            "account_role_name": "AR_CS",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_CS_APPLICATION_NAME\"|false|false|CREATE SCHEMA|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
+            "id": "\"AR_CS\"|false|false|CREATE SCHEMA|OnAccountObject|DATABASE|\"DEV_DB_APPLICATION_NAME\"",
             "on_account": false,
             "on_account_object": [
               {
@@ -1102,7 +899,6 @@
           "sensitive_attributes": [],
           "private": "bnVsbA==",
           "dependencies": [
-            "snowflake_account_role.create_schema_role",
             "snowflake_database.demo_db"
           ]
         }
@@ -1118,11 +914,11 @@
           "index_key": "DWH",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_DWH_RO_APPLICATION_NAME",
+            "account_role_name": "AR_DWH_RO",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_DWH_RO_APPLICATION_NAME\"|false|false|SELECT|OnSchemaObject|OnAll|TABLES|InSchema|\"DEV_DB_APPLICATION_NAME\".\"DWH\"",
+            "id": "\"AR_DWH_RO\"|false|false|SELECT|OnSchemaObject|OnAll|TABLES|InSchema|\"DEV_DB_APPLICATION_NAME\".\"DWH\"",
             "on_account": false,
             "on_account_object": [],
             "on_schema": [],
@@ -1157,11 +953,11 @@
           "index_key": "MDL",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_MDL_RO_APPLICATION_NAME",
+            "account_role_name": "AR_MDL_RO",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_MDL_RO_APPLICATION_NAME\"|false|false|SELECT|OnSchemaObject|OnAll|TABLES|InSchema|\"DEV_DB_APPLICATION_NAME\".\"MDL\"",
+            "id": "\"AR_MDL_RO\"|false|false|SELECT|OnSchemaObject|OnAll|TABLES|InSchema|\"DEV_DB_APPLICATION_NAME\".\"MDL\"",
             "on_account": false,
             "on_account_object": [],
             "on_schema": [],
@@ -1196,11 +992,11 @@
           "index_key": "STG",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_STG_RO_APPLICATION_NAME",
+            "account_role_name": "AR_STG_RO",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_STG_RO_APPLICATION_NAME\"|false|false|SELECT|OnSchemaObject|OnAll|TABLES|InSchema|\"DEV_DB_APPLICATION_NAME\".\"STG\"",
+            "id": "\"AR_STG_RO\"|false|false|SELECT|OnSchemaObject|OnAll|TABLES|InSchema|\"DEV_DB_APPLICATION_NAME\".\"STG\"",
             "on_account": false,
             "on_account_object": [],
             "on_schema": [],
@@ -1243,11 +1039,11 @@
           "index_key": "DWH",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_DWH_RO_APPLICATION_NAME",
+            "account_role_name": "AR_DWH_RO",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_DWH_RO_APPLICATION_NAME\"|false|false|SELECT|OnSchemaObject|OnFuture|TABLES|InSchema|\"DEV_DB_APPLICATION_NAME\".\"DWH\"",
+            "id": "\"AR_DWH_RO\"|false|false|SELECT|OnSchemaObject|OnFuture|TABLES|InSchema|\"DEV_DB_APPLICATION_NAME\".\"DWH\"",
             "on_account": false,
             "on_account_object": [],
             "on_schema": [],
@@ -1282,11 +1078,11 @@
           "index_key": "MDL",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_MDL_RO_APPLICATION_NAME",
+            "account_role_name": "AR_MDL_RO",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_MDL_RO_APPLICATION_NAME\"|false|false|SELECT|OnSchemaObject|OnFuture|TABLES|InSchema|\"DEV_DB_APPLICATION_NAME\".\"MDL\"",
+            "id": "\"AR_MDL_RO\"|false|false|SELECT|OnSchemaObject|OnFuture|TABLES|InSchema|\"DEV_DB_APPLICATION_NAME\".\"MDL\"",
             "on_account": false,
             "on_account_object": [],
             "on_schema": [],
@@ -1321,11 +1117,11 @@
           "index_key": "STG",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_STG_RO_APPLICATION_NAME",
+            "account_role_name": "AR_STG_RO",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_STG_RO_APPLICATION_NAME\"|false|false|SELECT|OnSchemaObject|OnFuture|TABLES|InSchema|\"DEV_DB_APPLICATION_NAME\".\"STG\"",
+            "id": "\"AR_STG_RO\"|false|false|SELECT|OnSchemaObject|OnFuture|TABLES|InSchema|\"DEV_DB_APPLICATION_NAME\".\"STG\"",
             "on_account": false,
             "on_account_object": [],
             "on_schema": [],
@@ -1368,11 +1164,11 @@
           "index_key": "DWH",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_DWH_RO_APPLICATION_NAME",
+            "account_role_name": "AR_DWH_RO",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_DWH_RO_APPLICATION_NAME\"|false|false|USAGE|OnSchema|OnSchema|\"DEV_DB_APPLICATION_NAME\".\"DWH\"",
+            "id": "\"AR_DWH_RO\"|false|false|USAGE|OnSchema|OnSchema|\"DEV_DB_APPLICATION_NAME\".\"DWH\"",
             "on_account": false,
             "on_account_object": [],
             "on_schema": [
@@ -1400,11 +1196,11 @@
           "index_key": "MDL",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_MDL_RO_APPLICATION_NAME",
+            "account_role_name": "AR_MDL_RO",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_MDL_RO_APPLICATION_NAME\"|false|false|USAGE|OnSchema|OnSchema|\"DEV_DB_APPLICATION_NAME\".\"MDL\"",
+            "id": "\"AR_MDL_RO\"|false|false|USAGE|OnSchema|OnSchema|\"DEV_DB_APPLICATION_NAME\".\"MDL\"",
             "on_account": false,
             "on_account_object": [],
             "on_schema": [
@@ -1432,11 +1228,11 @@
           "index_key": "STG",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_STG_RO_APPLICATION_NAME",
+            "account_role_name": "AR_STG_RO",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_STG_RO_APPLICATION_NAME\"|false|false|USAGE|OnSchema|OnSchema|\"DEV_DB_APPLICATION_NAME\".\"STG\"",
+            "id": "\"AR_STG_RO\"|false|false|USAGE|OnSchema|OnSchema|\"DEV_DB_APPLICATION_NAME\".\"STG\"",
             "on_account": false,
             "on_account_object": [],
             "on_schema": [
@@ -1472,11 +1268,11 @@
           "index_key": "DWH",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_DWH_RW_APPLICATION_NAME",
+            "account_role_name": "AR_DWH_RW",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_DWH_RW_APPLICATION_NAME\"|false|false|ALL PRIVILEGES|OnSchema|OnSchema|\"DEV_DB_APPLICATION_NAME\".\"DWH\"",
+            "id": "\"AR_DWH_RW\"|false|false|ALL PRIVILEGES|OnSchema|OnSchema|\"DEV_DB_APPLICATION_NAME\".\"DWH\"",
             "on_account": false,
             "on_account_object": [],
             "on_schema": [
@@ -1504,11 +1300,11 @@
           "index_key": "MDL",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_MDL_RW_APPLICATION_NAME",
+            "account_role_name": "AR_MDL_RW",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_MDL_RW_APPLICATION_NAME\"|false|false|ALL PRIVILEGES|OnSchema|OnSchema|\"DEV_DB_APPLICATION_NAME\".\"MDL\"",
+            "id": "\"AR_MDL_RW\"|false|false|ALL PRIVILEGES|OnSchema|OnSchema|\"DEV_DB_APPLICATION_NAME\".\"MDL\"",
             "on_account": false,
             "on_account_object": [],
             "on_schema": [
@@ -1536,11 +1332,11 @@
           "index_key": "STG",
           "schema_version": 0,
           "attributes": {
-            "account_role_name": "DEV_AR_STG_RW_APPLICATION_NAME",
+            "account_role_name": "AR_STG_RW",
             "all_privileges": false,
             "always_apply": false,
             "always_apply_trigger": null,
-            "id": "\"DEV_AR_STG_RW_APPLICATION_NAME\"|false|false|ALL PRIVILEGES|OnSchema|OnSchema|\"DEV_DB_APPLICATION_NAME\".\"STG\"",
+            "id": "\"AR_STG_RW\"|false|false|ALL PRIVILEGES|OnSchema|OnSchema|\"DEV_DB_APPLICATION_NAME\".\"STG\"",
             "on_account": false,
             "on_account_object": [],
             "on_schema": [
@@ -1851,7 +1647,7 @@
             "show_output": [
               {
                 "comment": "",
-                "created_on": "2025-02-26 02:02:10.479 -0800 PST",
+                "created_on": "2025-02-26 00:51:52.242 -0800 PST",
                 "database_name": "DEV_DB_APPLICATION_NAME",
                 "dropped_on": "0001-01-01 00:00:00 +0000 UTC",
                 "is_current": false,
@@ -2059,7 +1855,7 @@
             "show_output": [
               {
                 "comment": "",
-                "created_on": "2025-02-26 02:02:10.544 -0800 PST",
+                "created_on": "2025-02-26 00:51:52.098 -0800 PST",
                 "database_name": "DEV_DB_APPLICATION_NAME",
                 "dropped_on": "0001-01-01 00:00:00 +0000 UTC",
                 "is_current": false,
@@ -2267,7 +2063,7 @@
             "show_output": [
               {
                 "comment": "",
-                "created_on": "2025-02-26 02:02:10.947 -0800 PST",
+                "created_on": "2025-02-26 00:51:52.095 -0800 PST",
                 "database_name": "DEV_DB_APPLICATION_NAME",
                 "dropped_on": "0001-01-01 00:00:00 +0000 UTC",
                 "is_current": false,
@@ -2357,7 +2153,7 @@
                 "auto_suspend": 60,
                 "available": 0,
                 "comment": "Warehouse for ENGR",
-                "created_on": "2025-02-26 02:02:09.648 -0800 PST",
+                "created_on": "2025-02-25 21:05:34.35 -0800 PST",
                 "enable_query_acceleration": false,
                 "is_current": false,
                 "is_default": false,
@@ -2372,14 +2168,14 @@
                 "queued": 0,
                 "quiescing": 0,
                 "resource_monitor": "",
-                "resumed_on": "2025-02-26 02:02:09.787 -0800 PST",
+                "resumed_on": "2025-02-25 21:05:34.508 -0800 PST",
                 "running": 0,
                 "scaling_policy": "STANDARD",
                 "size": "XSMALL",
                 "started_clusters": 0,
                 "state": "SUSPENDED",
                 "type": "STANDARD",
-                "updated_on": "2025-02-26 02:02:09.787 -0800 PST"
+                "updated_on": "2025-02-25 21:05:34.508 -0800 PST"
               }
             ],
             "statement_queued_timeout_in_seconds": 0,
@@ -2445,7 +2241,7 @@
                 "auto_suspend": 60,
                 "available": 0,
                 "comment": "Warehouse for RDR",
-                "created_on": "2025-02-26 02:02:09.688 -0800 PST",
+                "created_on": "2025-02-25 21:05:34.359 -0800 PST",
                 "enable_query_acceleration": false,
                 "is_current": false,
                 "is_default": false,
@@ -2460,14 +2256,14 @@
                 "queued": 0,
                 "quiescing": 0,
                 "resource_monitor": "",
-                "resumed_on": "2025-02-26 02:02:09.845 -0800 PST",
+                "resumed_on": "2025-02-25 21:05:34.513 -0800 PST",
                 "running": 0,
                 "scaling_policy": "STANDARD",
                 "size": "XSMALL",
                 "started_clusters": 0,
                 "state": "SUSPENDED",
                 "type": "STANDARD",
-                "updated_on": "2025-02-26 02:02:09.845 -0800 PST"
+                "updated_on": "2025-02-25 21:05:34.513 -0800 PST"
               }
             ],
             "statement_queued_timeout_in_seconds": 0,
@@ -2533,7 +2329,7 @@
                 "auto_suspend": 60,
                 "available": 0,
                 "comment": "Warehouse for TO",
-                "created_on": "2025-02-26 02:02:09.719 -0800 PST",
+                "created_on": "2025-02-25 21:05:34.426 -0800 PST",
                 "enable_query_acceleration": false,
                 "is_current": false,
                 "is_default": false,
@@ -2548,14 +2344,14 @@
                 "queued": 0,
                 "quiescing": 0,
                 "resource_monitor": "",
-                "resumed_on": "2025-02-26 02:02:09.847 -0800 PST",
+                "resumed_on": "2025-02-25 21:05:34.58 -0800 PST",
                 "running": 0,
                 "scaling_policy": "STANDARD",
                 "size": "XSMALL",
                 "started_clusters": 0,
                 "state": "SUSPENDED",
                 "type": "STANDARD",
-                "updated_on": "2025-02-26 02:02:09.847 -0800 PST"
+                "updated_on": "2025-02-25 21:05:34.58 -0800 PST"
               }
             ],
             "statement_queued_timeout_in_seconds": 0,

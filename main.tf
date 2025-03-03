@@ -30,90 +30,69 @@ resource "snowflake_database" "demo_db" {
   name    = "${var.ENV}_DB_${var.NAME}"
   comment = "Database for Snowflake Terraform demo"
 }
-
-resource "snowflake_schema" "src_stg" {
+resource "snowflake_schema" "schemas" {
+  for_each = toset(var.schema_names)
+  
   database = snowflake_database.demo_db.name
-  name     = "STG"
-}
-
-resource "snowflake_schema" "mdl" {
-  database = snowflake_database.demo_db.name
-  name     = "MDL"
-}
-
-resource "snowflake_schema" "dwh" {
-  database = snowflake_database.demo_db.name
-  name     = "DWH"
+  name     = each.key
 }
 
 # Create Snowflake Role
-resource "snowflake_account_role" "snowflake_service_role" {
-  name     = "TZSYSADMIN_DEV"
+resource "snowflake_account_role" "snowflake_dbaccount_admin_role" {
+  name     = var.dbaccount_admin_role
   comment  = ""
 }
 # Grant New Role to SYSADMIN
 resource "snowflake_grant_account_role" "snowflake_role_sysadmin_grant" {
-  role_name        = "TZSYSADMIN_DEV"
+  role_name        = snowflake_account_role.snowflake_dbaccount_admin_role.name
   parent_role_name = "SYSADMIN"
 
   depends_on = [
-    snowflake_account_role.snowflake_service_role
+    snowflake_account_role.snowflake_dbaccount_admin_role
   ]
 }
 
 resource "snowflake_grant_ownership" "ownership_to_acc_role" {
   for_each = snowflake_warehouse.wh
-  account_role_name = "TZSYSADMIN_DEV"
+  account_role_name = snowflake_account_role.snowflake_dbaccount_admin_role.name
   on {
     object_type = "WAREHOUSE"
     object_name = each.value.name
   }
 }
 resource "snowflake_grant_ownership" "test" {
-  account_role_name = snowflake_account_role.snowflake_service_role.name
+  account_role_name = snowflake_account_role.snowflake_dbaccount_admin_role.name
   on {
     object_type = "DATABASE"
     object_name = snowflake_database.demo_db.name
   }
 }
 resource "snowflake_account_role" "create_schema_role" {
-  name     = "AR_CS"
+  name     = "${var.ENV}_AR_CS_${var.NAME}"
   comment  = "CREATE SCHEMA ROLE"
 }
-# Grant Usage on Databases to DBT Role
+#Grant Usage on Databases to DBT Role
 resource "snowflake_grant_privileges_to_account_role" "dbt_role_raw_database_usage_grant" {
   privileges        = ["CREATE SCHEMA"]
-  account_role_name = "AR_CS"
+  account_role_name = snowflake_account_role.create_schema_role.name
   on_account_object {
     object_type = "DATABASE"
     object_name = snowflake_database.demo_db.name
   }
+ }
+resource "snowflake_account_role" "schema_roles_rw" {
+  for_each = toset(var.schema_names)
+  
+  name    = "${var.ENV}_AR_${each.value}_RW_${var.NAME}"
+  comment = "Read-Write role for ${each.value} schema"
+}
+resource "snowflake_account_role" "schema_roles_ro" {
+  for_each = toset(var.schema_names)
+  
+  name    = "${var.ENV}_AR_${each.value}_RO_${var.NAME}"
+  comment = "Read-only role for ${each.value} schema"
 }
 
-resource "snowflake_account_role" "ar_src_rw_role" {
-  name     = "AR_SRC_RW"
-  comment  = "RW role"
-}
-resource "snowflake_account_role" "ar_mdl_rw_role" {
-  name     = "AR_MDL_RW"
-  comment  = "RW role"
-}
-resource "snowflake_account_role" "ar_dwh_rw_role" {
-  name     = "AR_DWH_RW"
-  comment  = "RW role"
-}
-resource "snowflake_account_role" "ar_src_ro_role" {
-  name     = "AR_SRC_RO"
-  comment  = "RO role"
-}
-resource "snowflake_account_role" "ar_mdl_ro_role" {
-  name     = "AR_MDL_RO"
-  comment  = "RO role"
-}
-resource "snowflake_account_role" "ar_dwh_ro_role" {
-  name     = "AR_DWH_RO"
-  comment  = "RO role"
-}
 resource "snowflake_account_role" "warehouse_roles" {
   for_each = toset(var.warehouse_names)
 
@@ -158,19 +137,24 @@ resource "snowflake_grant_account_role" "task_operator_inherits" {
   role_name         = snowflake_account_role.task_operator.name
   parent_role_name   = each.value
 }
-
-resource "snowflake_grant_privileges_to_account_role" "db_usage_all" {
-  for_each = {
-    ar_src_rw = snowflake_account_role.ar_src_rw_role.name
-    ar_src_ro = snowflake_account_role.ar_src_ro_role.name
-    ar_mdl_rw = snowflake_account_role.ar_mdl_rw_role.name
-    ar_mdl_ro = snowflake_account_role.ar_mdl_ro_role.name
-    ar_dwh_rw = snowflake_account_role.ar_dwh_rw_role.name
-    ar_dwh_ro = snowflake_account_role.ar_dwh_ro_role.name
-  }
-
+# Grant USAGE on Database to RW Roles
+resource "snowflake_grant_privileges_to_account_role" "db_usage_rw" {
+  for_each = snowflake_account_role.schema_roles_rw
+  
   privileges        = ["USAGE"]
-  account_role_name = each.value
+  account_role_name = each.value.name
+  on_account_object {
+    object_type = "DATABASE"
+    object_name = snowflake_database.demo_db.name
+  }
+}
+
+# Grant USAGE on Database to RO Roles
+resource "snowflake_grant_privileges_to_account_role" "db_usage_ro" {
+  for_each = snowflake_account_role.schema_roles_ro
+  
+  privileges        = ["USAGE"]
+  account_role_name = each.value.name
   on_account_object {
     object_type = "DATABASE"
     object_name = snowflake_database.demo_db.name
@@ -178,121 +162,70 @@ resource "snowflake_grant_privileges_to_account_role" "db_usage_all" {
 }
 
 # Grant ALL PRIVILEGES to RW roles on respective schemas
-resource "snowflake_grant_privileges_to_account_role" "src_rw_priv" {
+
+resource "snowflake_grant_privileges_to_account_role" "rw_privileges" {
+  for_each = snowflake_schema.schemas
+
   privileges        = ["ALL PRIVILEGES"]
-  account_role_name = snowflake_account_role.ar_src_rw_role.name
+  account_role_name = snowflake_account_role.schema_roles_rw[each.key].name
   on_schema {
-    schema_name = snowflake_schema.src_stg.fully_qualified_name
+    schema_name = each.value.fully_qualified_name
   }
 }
-
-resource "snowflake_grant_privileges_to_account_role" "mdl_rw_priv" {
-  privileges        = ["ALL PRIVILEGES"]
-  account_role_name = snowflake_account_role.ar_mdl_rw_role.name
-  on_schema {
-    schema_name = snowflake_schema.mdl.fully_qualified_name
-  }
-}
-resource "snowflake_grant_privileges_to_account_role" "dwh_rw_priv" {
-  privileges        = ["ALL PRIVILEGES"]
-  account_role_name = snowflake_account_role.ar_dwh_rw_role.name
-  on_schema {
-    schema_name = snowflake_schema.dwh.fully_qualified_name
-  }
-}
-
-
-# Grant USAGE and SELECT to RO roles on respective schemas
-resource "snowflake_grant_privileges_to_account_role" "src_ro_priv" {
+# Grant USAGE to RO roles on respective schemas
+resource "snowflake_grant_privileges_to_account_role" "ro_usage" {
+  for_each = snowflake_schema.schemas
   privileges        = ["USAGE"]
-  account_role_name = snowflake_account_role.ar_src_ro_role.name
+  account_role_name = snowflake_account_role.schema_roles_ro[each.key].name
   on_schema {
-    schema_name = snowflake_schema.src_stg.fully_qualified_name
+    schema_name = each.value.fully_qualified_name
   }
 }
-
-resource "snowflake_grant_privileges_to_account_role" "mdl_ro_priv" {
-  privileges        = ["USAGE"]
-  account_role_name = snowflake_account_role.ar_mdl_ro_role.name
-  on_schema {
-    schema_name = snowflake_schema.mdl.fully_qualified_name
-  }
-}
-
-resource "snowflake_grant_privileges_to_account_role" "dwh_ro_priv" {
-  privileges        = ["USAGE"]
-  account_role_name = snowflake_account_role.ar_dwh_ro_role.name
-  on_schema {
-    schema_name = snowflake_schema.dwh.fully_qualified_name
-  }
-}
-# Grant SELECT and INSERT on all tables in SRC schema to RO role
-resource "snowflake_grant_privileges_to_account_role" "src_ro_select" {
+# Grant SELECT on all existing tables in each schema to corresponding RO role
+resource "snowflake_grant_privileges_to_account_role" "ro_select_existing" {
+  for_each = snowflake_schema.schemas
   privileges        = ["SELECT"]
-  account_role_name = snowflake_account_role.ar_src_ro_role.name
+  account_role_name = snowflake_account_role.schema_roles_ro[each.key].name
   on_schema_object {
     all {
       object_type_plural = "TABLES"
-      in_schema          = snowflake_schema.src_stg.fully_qualified_name
-    }
-  }
-  depends_on = [snowflake_schema.src_stg, snowflake_account_role.ar_src_ro_role]
-
-}
-# Grant SELECT and INSERT on all tables in MDL schema to RO role
-resource "snowflake_grant_privileges_to_account_role" "mdl_ro_select" {
-  privileges        = ["SELECT"]
-  account_role_name = snowflake_account_role.ar_mdl_ro_role.name
-  on_schema_object {
-    all {
-      object_type_plural = "TABLES"
-      in_schema          = snowflake_schema.mdl.fully_qualified_name
+      in_schema          = each.value.fully_qualified_name
     }
   }
 }
 
-# Grant SELECT and INSERT on all tables in DWH schema to RO role
-resource "snowflake_grant_privileges_to_account_role" "dwh_ro_select" {
+# Grant SELECT on all future tables in each schema to corresponding RO role
+resource "snowflake_grant_privileges_to_account_role" "ro_select_future" {
+  for_each = snowflake_schema.schemas
   privileges        = ["SELECT"]
-  account_role_name = snowflake_account_role.ar_dwh_ro_role.name
-  on_schema_object {
-    all {
-      object_type_plural = "TABLES"
-      in_schema          = snowflake_schema.dwh.fully_qualified_name
-    }
-  }
-}
-
-resource "snowflake_grant_privileges_to_account_role" "src_ro_future_select" {
-  privileges        = ["SELECT"]
-  account_role_name = snowflake_account_role.ar_src_ro_role.name
+  account_role_name = snowflake_account_role.schema_roles_ro[each.key].name
 
   on_schema_object {
     future {
       object_type_plural = "TABLES"
-      in_schema          = snowflake_schema.src_stg.fully_qualified_name
+      in_schema          = each.value.fully_qualified_name
     }
   }
 }
-resource "snowflake_grant_privileges_to_account_role" "mdl_ro_future_priv" {
-  privileges        = ["SELECT"]
-  account_role_name = snowflake_account_role.ar_mdl_ro_role.name
+resource "snowflake_grant_account_role" "fr_inheritance_rw_roles" {
+  for_each = toset(keys(snowflake_account_role.schema_roles_rw))
 
-  on_schema_object {
-    future {
-      object_type_plural = "TABLES"
-      in_schema          = snowflake_schema.mdl.fully_qualified_name
-    }
-  }
+  role_name        = snowflake_account_role.fr_roles["ENGR"].name
+  parent_role_name = "${var.ENV}_AR_${each.value}_RW_${var.NAME}"
 }
-resource "snowflake_grant_privileges_to_account_role" "dwh_ro_future_priv" {
-  privileges        = ["SELECT"]
-  account_role_name = snowflake_account_role.ar_dwh_ro_role.name
+resource "snowflake_grant_account_role" "fr_inheritance_ro_roles" {
+  for_each = toset(keys(snowflake_account_role.schema_roles_ro))
 
-  on_schema_object {
-    future {
-      object_type_plural = "TABLES"
-      in_schema          = snowflake_schema.dwh.fully_qualified_name
-    }
-  }
+  role_name        = snowflake_account_role.fr_roles["RDR"].name
+  parent_role_name = "${var.ENV}_AR_${each.value}_RO_${var.NAME}"
+}
+resource "snowflake_grant_account_role" "ar_cs_inherit_to_fr_engr" {
+   
+  role_name        = snowflake_account_role.fr_roles["ENGR"].name
+  parent_role_name = "${var.ENV}_AR_CS_${var.NAME}"
+}
+resource "snowflake_grant_account_role" "fr_roles_inherit_to_tsysadmin" {
+  for_each = snowflake_account_role.fr_roles
+  role_name        = snowflake_account_role.snowflake_service_role.name
+  parent_role_name = each.value.name
 }
